@@ -97,20 +97,20 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xc0;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xdb;
-        vAlertPubKey = ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9");
-        nDefaultPort = 9333;
+        pchMessageStart[0] = 0x3b;
+        pchMessageStart[1] = 0xa1;
+        pchMessageStart[2] = 0xc9;
+        pchMessageStart[3] = 0x2a;
+        vAlertPubKey = ParseHex("211184710fa679ad5023590c80f3a49c8f13f8d45b8b857fbcac8bc4a8b4d3eb3b10f4b4604fa18dce611aaf0f170216ae1a5175bb4bcf2bb279cb5170bc6b03b6");
+        nDefaultPort = 42511;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nSubsidyHalvingInterval = 840000;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+        nTargetTimespan = 5 * 60; // 5 minutes
+        nTargetSpacing = 1 * 30; // 30 seconds
         nMaxTipAge = 24 * 60 * 60;
 
         /**
@@ -123,31 +123,47 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
          *   vMerkleTree: 4a5e1e
          */
-        const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+		 
+		/**
+		 *  "hash": "96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9",
+		 *  "confirmations": 657174,
+		 *  "size": 246,
+		 *  "height": 0,
+		 *  "version": 1,
+		 *  "merkleroot": "234383ad6f89ee376010cda0a0ffcdae20f772eb60d917eb1048a6686bcf789e",
+		 *  "tx": [ "234383ad6f89ee376010cda0a0ffcdae20f772eb60d917eb1048a6686bcf789e" ],
+		 *  "time": 1440696188,
+		 *  "nonce": 1021531,
+		 *  "bits": "1e0ffff0",
+		 *  "difficulty": 0.00024414,
+		 *  "nextblockhash": "044b69a8bcf7ae0933a2863c47a9f878806ccc5654931de7731423a16840a2d4"
+		 */
+		 
+        const char* pszTimestamp = "27-08-2015 With love for miners";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 50 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("42183710aa589ada023691c80f3a49a8f13f1d45bac857fbcba8bc4a8ead3eb4b10a4d4a04fa08dce60aaaf0fa7021afe1b51850a2acf21ba79c45070aa7b13a8") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1317972665;
+        genesis.nTime    = 1440696188;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 2084524493;
+        genesis.nNonce   = 1021531;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
-        assert(genesis.hashMerkleRoot == uint256("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(hashGenesisBlock == uint256("0x96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9"));
+        assert(genesis.hashMerkleRoot == uint256("0x234383ad6f89ee376010cda0a0ffcdae20f772eb60d917eb1048a6686bcf789e"));
 
         vSeeds.push_back(CDNSSeedData("minecoin.info", "dnsseed.minecoin.info"));
         vSeeds.push_back(CDNSSeedData("midnightminer.net", "xmineseed.midnightminer.net"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(48);
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(50);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
-        base58Prefixes[SECRET_KEY] =     list_of(176);
+        base58Prefixes[SECRET_KEY] =     list_of(178);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
 
@@ -181,25 +197,25 @@ public:
     CTestNetParams() {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0xfc;
-        pchMessageStart[1] = 0xc1;
-        pchMessageStart[2] = 0xb7;
-        pchMessageStart[3] = 0xdc;
-        vAlertPubKey = ParseHex("0449623fc74489a947c4b15d579115591add020e53b3490bf47297dfa3762250625f8ecc2fb4fc59f69bdce8f7080f3167808276ed2c79d297054367566038aa82");
-        nDefaultPort = 19333;
+        pchMessageStart[0] = 0x16;
+        pchMessageStart[1] = 0x23;
+        pchMessageStart[2] = 0xa1;
+        pchMessageStart[3] = 0xbc;
+        vAlertPubKey = ParseHex("311184710fa679ad5023590c80f3a49c8f13f8d45b8b857fbcac8bc4a8b4d3eb3b10f4b4604fa18dce611aaf0f170216ae1a5175bb4bcf2bb279cb5170bc6b03b6");
+        nDefaultPort = 43511;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+       nTargetTimespan = 5 * 60; // 5 minutes
+        nTargetSpacing = 1 * 30; // 30 seconds
         nMaxTipAge = 0x7fffffff;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1317798646;
-        genesis.nNonce = 385270584;
+        genesis.nTime = 1440696188;
+        genesis.nNonce = 1021531;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xf5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f"));
+        assert(hashGenesisBlock == uint256("0x96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
