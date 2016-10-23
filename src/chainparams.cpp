@@ -142,12 +142,8 @@ public:
         assert(hashGenesisBlock == uint256("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
         assert(genesis.hashMerkleRoot == uint256("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
-        vSeeds.push_back(CDNSSeedData("minecointools.com", "dnsseed.minecointools.com"));
-        vSeeds.push_back(CDNSSeedData("minecoinpool.org", "dnsseed.minecoinpool.org"));
-        vSeeds.push_back(CDNSSeedData("xurious.com", "dnsseed.ltc.xurious.com"));
-        vSeeds.push_back(CDNSSeedData("koin-project.com", "dnsseed.koin-project.com"));
-        vSeeds.push_back(CDNSSeedData("weminemnc.com", "dnsseed.weminemnc.com"));
-        vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-a.minecoin.loshan.co.uk"));
+        vSeeds.push_back(CDNSSeedData("minecoin.info", "dnsseed.minecoin.info"));
+        vSeeds.push_back(CDNSSeedData("midnightminer.net", "xmineseed.midnightminer.net"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(48);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
