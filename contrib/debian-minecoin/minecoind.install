@@ -1,0 +1,2 @@
+usr/local/bin/minecoind usr/bin
+usr/local/bin/minecoin-cli usr/bin
