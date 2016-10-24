@@ -164,8 +164,8 @@ public:
         base58Prefixes[PUBKEY_ADDRESS] = list_of(50);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
         base58Prefixes[SECRET_KEY] =     list_of(178);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
+        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0x3b)(0xa1);
+        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xc9)(0x2a);
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -219,15 +219,15 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("minecointools.com", "testnet-seed.minecointools.com"));
-        vSeeds.push_back(CDNSSeedData("xurious.com", "testnet-seed.ltc.xurious.com"));
-        vSeeds.push_back(CDNSSeedData("wemine-testnet.com", "dnsseed.wemine-testnet.com"));
+        vSeeds.push_back(CDNSSeedData("minecoin.info", "testnet-seed.minecoin.info"));
+        vSeeds.push_back(CDNSSeedData("midnightminer.net", "testnet-xmineseed.midnightminer.net"));
+//        vSeeds.push_back(CDNSSeedData("wemine-testnet.com", "dnsseed.wemine-testnet.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
         base58Prefixes[SECRET_KEY]     = list_of(239);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0x83)(0x94);
+        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x16)(0x23);
+        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0xa1)(0xbc);
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
 
