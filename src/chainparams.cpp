@@ -54,8 +54,17 @@ static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data
  */
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-		(  0, uint256("0x96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9"))
-		(  7356, uint256("0x5bda3a3bd226cd609b093593e9a2653e4c9e2bc0e84c20abfdfa8f0b98be0228"))
+		(      0, uint256("0x96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9"))
+		(   7356, uint256("0x5bda3a3bd226cd609b093593e9a2653e4c9e2bc0e84c20abfdfa8f0b98be0228"))
+		(  25000, uint256("0x45b539abb29ed00c18bafe77181fad68b47eddd686231c217a22f0b8592e8437"))
+		(  50000, uint256("0x71df8ab07e3d40aa34d7647bcfca7f9114d0436fdd38f4b51daf22dca8d91092"))
+		( 100000, uint256("0x9c05134706aad749f11e72473ef3370f448a91716fb0dcb58296651d3926ed11"))
+		( 200000, uint256("0x5f54457ae4ac46e4ea4d094a24e01e4f5b89b4bbe9ecb7b02b6b5aca070d04b8"))
+		( 300000, uint256("0xc3dece54d1a658c65be9bd7f999074a36e6efbbcdfe95636bc4fc03fd313a6e7"))
+		( 400000, uint256("0xc3184d95fa248c46ceaeaf2235ad8d7ff75d7f898b6f72e44f35833699d4d9cb"))
+		( 500000, uint256("0xdd0873b91edfb00c55bba58f509f33406fa9a0f69e53bb11705251074413e518"))
+		( 600000, uint256("0xd8da0db4a90a334b4aae4d33274a74bcf2f9533e0304304408f747c22c13f4c9"))
+		( 658200, uint256("0xc457a10672e7740f57d9554db2483f0e8260a7f2900912d83bc89bedb23235d0"))
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
