@@ -114,6 +114,7 @@ public:
         nDefaultPort = 42511;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nSubsidyHalvingInterval = 840000;
+        nSubsidyHalvingInterval2 = 200000;  // Halving interval after block 700k
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
@@ -187,8 +188,10 @@ public:
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        // Minecoin: Mainnet v2 enforced as of block 710k
+        // Minecoin: Mainnet v2 enforced as of block 700k
         nEnforceV2AfterHeight = 710000;
+        // Hark Fork at block 700k - change PoW rewards.
+        nForkHeight700k = 700000;  // Hard Fork to change PoW rewards and Halving interval.
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const 
@@ -216,7 +219,7 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-       nTargetTimespan = 5 * 60; // 5 minutes
+        nTargetTimespan = 5 * 60; // 5 minutes
         nTargetSpacing = 1 * 30; // 30 seconds
         nMaxTipAge = 0x7fffffff;
 
@@ -271,6 +274,7 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         nSubsidyHalvingInterval = 150;
+        nSubsidyHalvingInterval2 = 50;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
@@ -283,7 +287,7 @@ public:
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 19444;
+        nDefaultPort = 44511;
 //		printf("RegTest GenesisBlock = %s \n", hashGenesisBlock.ToString().c_str());
         assert(hashGenesisBlock == uint256("0x1c717ec1ebccb72884a1b6271f871629a7914ac7f8eac04ed862863e3c7d44cd"));
 
@@ -300,6 +304,7 @@ public:
 
         // Minecoin: v2 enforced using Bitcoin's supermajority rule
         nEnforceV2AfterHeight = -1;
+        nForkHeight700k = 300;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const 
     {
@@ -316,7 +321,7 @@ public:
     CUnitTestParams() {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 18445;
+        nDefaultPort = 42512;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Unit test mode doesn't have any DNS seeds.
 
@@ -338,12 +343,14 @@ public:
 
     //! Published setters to allow changing values in unit test cases
     virtual void setSubsidyHalvingInterval(int anSubsidyHalvingInterval)  { nSubsidyHalvingInterval=anSubsidyHalvingInterval; }
+    virtual void setSubsidyHalvingInterval2(int anSubsidyHalvingInterval2)  { nSubsidyHalvingInterval2=anSubsidyHalvingInterval2; }
     virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority)  { nEnforceBlockUpgradeMajority=anEnforceBlockUpgradeMajority; }
     virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority)  { nRejectBlockOutdatedMajority=anRejectBlockOutdatedMajority; }
     virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority)  { nToCheckBlockUpgradeMajority=anToCheckBlockUpgradeMajority; }
     virtual void setDefaultConsistencyChecks(bool afDefaultConsistencyChecks)  { fDefaultConsistencyChecks=afDefaultConsistencyChecks; }
     virtual void setAllowMinDifficultyBlocks(bool afAllowMinDifficultyBlocks) {  fAllowMinDifficultyBlocks=afAllowMinDifficultyBlocks; }
     virtual void setSkipProofOfWorkCheck(bool afSkipProofOfWorkCheck) { fSkipProofOfWorkCheck = afSkipProofOfWorkCheck; }
+    virtual void setForkHeight700k(bool anForkHeight700k) { nForkHeight700k = anForkHeight700k; }
 };
 static CUnitTestParams unitTestParams;
 

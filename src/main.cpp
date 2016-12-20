@@ -1248,9 +1248,16 @@ CAmount GetBlockValue(int nHeight, const CAmount& nFees)
     if(nHeight == 1)  
     {
         nSubsidy = 8400000 * COIN;
-    }	
+    }
 
-    int halvings = nHeight / Params().SubsidyHalvingInterval();
+/* Removed original halving schedule and replaced with binary halving at block 700k
+ * to extend time before money supply is reached.
+ *
+ * This slows down the mining rate, but also keep PoW mining available longer.
+ *
+*/
+
+ /*   int halvings = nHeight / Params().SubsidyHalvingInterval();
 
     // Force block reward to zero when right shift is undefined.
     if (halvings >= 64)
@@ -1258,6 +1265,17 @@ CAmount GetBlockValue(int nHeight, const CAmount& nFees)
 
     // Subsidy is cut in half every 840,000 blocks which will occur approximately every 1 years.
     nSubsidy >>= halvings;
+*/
+    if(nHeight >= Params().ForkHeight700k())
+    {
+        nSubsidy = 16 * COIN;
+        int halvings = nHeight - 700000 / Params().SubsidyHalvingInterval2();
+        if (halvings >= 16)
+            return nFees;
+
+        // Subsidy is cut in half every 200,000 blocks after block 700k.
+        nSubsidy >>= halvings;
+    }
 
     return nSubsidy + nFees;
 }
