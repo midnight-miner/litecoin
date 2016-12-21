@@ -1,5 +1,5 @@
 ---
-name: "minecoin-win-0.10"
+name: "minecoin-linux-0.10"
 enable_cache: true
 suites:
 - "precise"
