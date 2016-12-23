@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Minecoin
+Comment=Minecoin P2P Cryptocurrency
+Exec=minecoin-qt %u
+Terminal=false
+Type=Application
+Icon=bitcoin128
+MimeType=x-scheme-handler/minecoin;
+Categories=Office;Finance;
+Name[en_US]=minecoin-qt.desktop

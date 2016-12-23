@@ -47,6 +47,7 @@ public:
     int GetDefaultPort() const { return nDefaultPort; }
     const uint256& ProofOfWorkLimit() const { return bnProofOfWorkLimit; }
     int SubsidyHalvingInterval() const { return nSubsidyHalvingInterval; }
+    int SubsidyHalvingInterval2() const { return nSubsidyHalvingInterval2; }
     /** Used to check majorities for block version upgrade */
     int EnforceBlockUpgradeMajority() const { return nEnforceBlockUpgradeMajority; }
     int RejectBlockOutdatedMajority() const { return nRejectBlockOutdatedMajority; }
@@ -83,6 +84,8 @@ public:
 
     // Minecoin: Height to enforce v2 block
     int EnforceV2AfterHeight() const { return nEnforceV2AfterHeight; }
+    // Hard Fork at block 700k
+    int ForkHeight700k() const { return nForkHeight700k; }
 protected:
     CChainParams() {}
 
@@ -93,6 +96,7 @@ protected:
     int nDefaultPort;
     uint256 bnProofOfWorkLimit;
     int nSubsidyHalvingInterval;
+    int nSubsidyHalvingInterval2;
     int nEnforceBlockUpgradeMajority;
     int nRejectBlockOutdatedMajority;
     int nToCheckBlockUpgradeMajority;
@@ -100,6 +104,7 @@ protected:
     int64_t nTargetSpacing;
     int nMinerThreads;
     long nMaxTipAge;
+
     std::vector<CDNSSeedData> vSeeds;
     std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];
     CBaseChainParams::Network networkID;
@@ -117,6 +122,7 @@ protected:
 
     // Minecoin: Height to enforce v2 blocks
     int nEnforceV2AfterHeight;
+    int nForkHeight700k;
 };
 
 /** 
@@ -129,12 +135,14 @@ class CModifiableParams {
 public:
     //! Published setters to allow changing values in unit test cases
     virtual void setSubsidyHalvingInterval(int anSubsidyHalvingInterval) =0;
+    virtual void setSubsidyHalvingInterval2(int anSubsidyHalvingInterval2) =0;
     virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority)=0;
     virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority)=0;
     virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority)=0;
     virtual void setDefaultConsistencyChecks(bool aDefaultConsistencyChecks)=0;
     virtual void setAllowMinDifficultyBlocks(bool aAllowMinDifficultyBlocks)=0;
     virtual void setSkipProofOfWorkCheck(bool aSkipProofOfWorkCheck)=0;
+    virtual void setForkHeight700k(bool anForkHeight700k)=0;
 };
 
 

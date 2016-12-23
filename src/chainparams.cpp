@@ -54,29 +54,24 @@ static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data
  */
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (  1500, uint256("0x841a2965955dd288cfa707a755d05a54e45f8bd476835ec9af4402a2b59a2967"))
-        (  4032, uint256("0x9ce90e427198fc0ef05e5905ce3503725b80e26afd35a987965fd7e3d9cf0846"))
-        (  8064, uint256("0xeb984353fc5190f210651f150c40b8a4bab9eeeff0b729fcb3987da694430d70"))
-        ( 16128, uint256("0x602edf1859b7f9a6af809f1d9b0e6cb66fdc1d4d9dcd7a4bec03e12a1ccd153d"))
-        ( 23420, uint256("0xd80fdf9ca81afd0bd2b2a90ac3a9fe547da58f2530ec874e978fce0b5101b507"))
-        ( 50000, uint256("0x69dc37eb029b68f075a5012dcc0419c127672adb4f3a32882b2b3e71d07a20a6"))
-        ( 80000, uint256("0x4fcb7c02f676a300503f49c764a89955a8f920b46a8cbecb4867182ecdb2e90a"))
-        (120000, uint256("0xbd9d26924f05f6daa7f0155f32828ec89e8e29cee9e7121b026a7a3552ac6131"))
-        (161500, uint256("0xdbe89880474f4bb4f75c227c77ba1cdc024991123b28b8418dbbf7798471ff43"))
-        (179620, uint256("0x2ad9c65c990ac00426d18e446e0fd7be2ffa69e9a7dcb28358a50b2b78b9f709"))
-        (240000, uint256("0x7140d1c4b4c2157ca217ee7636f24c9c73db39c4590c4e6eab2e3ea1555088aa"))
-        (383640, uint256("0x2b6809f094a9215bafc65eb3f110a35127a34be94b7d0590a096c3f126c6f364"))
-        (409004, uint256("0x487518d663d9f1fa08611d9395ad74d982b667fbdc0e77e9cf39b4f1355908a3"))
-        (456000, uint256("0xbf34f71cc6366cd487930d06be22f897e34ca6a40501ac7d401be32456372004"))
-        (638902, uint256("0x15238656e8ec63d28de29a8c75fcf3a5819afc953dcd9cc45cecc53baec74f38"))
-        (721000, uint256("0x198a7b4de1df9478e2463bd99d75b714eab235a2e63e741641dc8a759a9840e5"))
+		(      0, uint256("0x96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9"))
+		(   7356, uint256("0x5bda3a3bd226cd609b093593e9a2653e4c9e2bc0e84c20abfdfa8f0b98be0228"))
+		(  25000, uint256("0x45b539abb29ed00c18bafe77181fad68b47eddd686231c217a22f0b8592e8437"))
+		(  50000, uint256("0x71df8ab07e3d40aa34d7647bcfca7f9114d0436fdd38f4b51daf22dca8d91092"))
+		( 100000, uint256("0x9c05134706aad749f11e72473ef3370f448a91716fb0dcb58296651d3926ed11"))
+		( 200000, uint256("0x5f54457ae4ac46e4ea4d094a24e01e4f5b89b4bbe9ecb7b02b6b5aca070d04b8"))
+		( 300000, uint256("0xc3dece54d1a658c65be9bd7f999074a36e6efbbcdfe95636bc4fc03fd313a6e7"))
+		( 400000, uint256("0xc3184d95fa248c46ceaeaf2235ad8d7ff75d7f898b6f72e44f35833699d4d9cb"))
+		( 500000, uint256("0xdd0873b91edfb00c55bba58f509f33406fa9a0f69e53bb11705251074413e518"))
+		( 600000, uint256("0xd8da0db4a90a334b4aae4d33274a74bcf2f9533e0304304408f747c22c13f4c9"))
+		( 658200, uint256("0xc457a10672e7740f57d9554db2483f0e8260a7f2900912d83bc89bedb23235d0"))
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
-        1422681363, // * UNIX timestamp of last checkpoint block
-        5502192,   // * total number of transactions between genesis and last checkpoint
+        1440951840, // * UNIX timestamp of last checkpoint block
+        715318,    // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
-        5500.0     // * estimated number of transactions per day after checkpoint
+        2880.0     // * estimated number of transactions per day after checkpoint
     };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -111,20 +106,21 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xc0;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xdb;
-        vAlertPubKey = ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9");
-        nDefaultPort = 9333;
+        pchMessageStart[0] = 0x3b;
+        pchMessageStart[1] = 0xa1;
+        pchMessageStart[2] = 0xc9;
+        pchMessageStart[3] = 0x2a;
+        vAlertPubKey = ParseHex("211184710fa679ad5023590c80f3a49c8f13f8d45b8b857fbcac8bc4a8b4d3eb3b10f4b4604fa18dce611aaf0f170216ae1a5175bb4bcf2bb279cb5170bc6b03b6");
+        nDefaultPort = 42511;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nSubsidyHalvingInterval = 840000;
+        nSubsidyHalvingInterval2 = 200000;  // Halving interval after block 700k
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+        nTargetTimespan = 5 * 60; // 5 minutes
+        nTargetSpacing = 1 * 30; // 30 seconds
         nMaxTipAge = 24 * 60 * 60;
 
         /**
@@ -137,37 +133,49 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
          *   vMerkleTree: 4a5e1e
          */
-        const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+		 
+		/**
+		 *  "hash": "96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9",
+		 *  "confirmations": 657174,
+		 *  "size": 246,
+		 *  "height": 0,
+		 *  "version": 1,
+		 *  "merkleroot": "234383ad6f89ee376010cda0a0ffcdae20f772eb60d917eb1048a6686bcf789e",
+		 *  "tx": [ "234383ad6f89ee376010cda0a0ffcdae20f772eb60d917eb1048a6686bcf789e" ],
+		 *  "time": 1440696188,
+		 *  "nonce": 1021531,
+		 *  "bits": "1e0ffff0",
+		 *  "difficulty": 0.00024414,
+		 *  "nextblockhash": "044b69a8bcf7ae0933a2863c47a9f878806ccc5654931de7731423a16840a2d4"
+		 */
+		 
+        const char* pszTimestamp = "27-08-2015 With love for miners";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 50 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("42183710aa589ada023691c80f3a49a8f13f1d45bac857fbcba8bc4a8ead3eb4b10a4d4a04fa08dce60aaaf0fa7021afe1b51850a2acf21ba79c45070aa7b13a8") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1317972665;
+        genesis.nTime    = 1440696188;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 2084524493;
+        genesis.nNonce   = 1021531;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
-        assert(genesis.hashMerkleRoot == uint256("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(hashGenesisBlock == uint256("0x96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9"));
+        assert(genesis.hashMerkleRoot == uint256("0x234383ad6f89ee376010cda0a0ffcdae20f772eb60d917eb1048a6686bcf789e"));
 
-        vSeeds.push_back(CDNSSeedData("minecointools.com", "dnsseed.minecointools.com"));
-        vSeeds.push_back(CDNSSeedData("minecoinpool.org", "dnsseed.minecoinpool.org"));
-        vSeeds.push_back(CDNSSeedData("xurious.com", "dnsseed.ltc.xurious.com"));
-        vSeeds.push_back(CDNSSeedData("koin-project.com", "dnsseed.koin-project.com"));
-        vSeeds.push_back(CDNSSeedData("weminemnc.com", "dnsseed.weminemnc.com"));
-        vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-a.minecoin.loshan.co.uk"));
+        vSeeds.push_back(CDNSSeedData("minecoin.info", "dnsseed.minecoin.info"));
+        vSeeds.push_back(CDNSSeedData("midnightminer.net", "xmineseed.midnightminer.net"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(48);
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(50);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
-        base58Prefixes[SECRET_KEY] =     list_of(176);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
+        base58Prefixes[SECRET_KEY] =     list_of(178);
+        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0x3b)(0xa1);
+        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xc9)(0x2a);
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -180,8 +188,10 @@ public:
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        // Minecoin: Mainnet v2 enforced as of block 710k
+        // Minecoin: Mainnet v2 enforced as of block 700k
         nEnforceV2AfterHeight = 710000;
+        // Hark Fork at block 700k - change PoW rewards.
+        nForkHeight700k = 700000;  // Hard Fork to change PoW rewards and Halving interval.
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const 
@@ -199,37 +209,37 @@ public:
     CTestNetParams() {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0xfc;
-        pchMessageStart[1] = 0xc1;
-        pchMessageStart[2] = 0xb7;
-        pchMessageStart[3] = 0xdc;
-        vAlertPubKey = ParseHex("0449623fc74489a947c4b15d579115591add020e53b3490bf47297dfa3762250625f8ecc2fb4fc59f69bdce8f7080f3167808276ed2c79d297054367566038aa82");
-        nDefaultPort = 19333;
+        pchMessageStart[0] = 0x16;
+        pchMessageStart[1] = 0x23;
+        pchMessageStart[2] = 0xa1;
+        pchMessageStart[3] = 0xbc;
+        vAlertPubKey = ParseHex("311184710fa679ad5023590c80f3a49c8f13f8d45b8b857fbcac8bc4a8b4d3eb3b10f4b4604fa18dce611aaf0f170216ae1a5175bb4bcf2bb279cb5170bc6b03b6");
+        nDefaultPort = 43511;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+        nTargetTimespan = 5 * 60; // 5 minutes
+        nTargetSpacing = 1 * 30; // 30 seconds
         nMaxTipAge = 0x7fffffff;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1317798646;
-        genesis.nNonce = 385270584;
+        genesis.nTime = 1440696188;
+        genesis.nNonce = 1021531;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xf5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f"));
+        assert(hashGenesisBlock == uint256("0x96e9ee342a81adb2558e877cf0732ee413762da43018f555702f7d2ee69c99e9"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("minecointools.com", "testnet-seed.minecointools.com"));
-        vSeeds.push_back(CDNSSeedData("xurious.com", "testnet-seed.ltc.xurious.com"));
-        vSeeds.push_back(CDNSSeedData("wemine-testnet.com", "dnsseed.wemine-testnet.com"));
+        vSeeds.push_back(CDNSSeedData("minecoin.info", "testnet-seed.minecoin.info"));
+        vSeeds.push_back(CDNSSeedData("midnightminer.net", "testnet-xmineseed.midnightminer.net"));
+//        vSeeds.push_back(CDNSSeedData("wemine-testnet.com", "dnsseed.wemine-testnet.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
         base58Prefixes[SECRET_KEY]     = list_of(239);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0x83)(0x94);
+        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x16)(0x23);
+        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0xa1)(0xbc);
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
 
@@ -264,20 +274,22 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         nSubsidyHalvingInterval = 150;
+        nSubsidyHalvingInterval2 = 50;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        nTargetSpacing = 2.5 * 60; // 2.5 minutes
+        nTargetTimespan = 5 * 60; // 5 minutes
+        nTargetSpacing = 1 * 30; // 30 seconds
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nMaxTipAge = 24 * 60 * 60;
         genesis.nTime = 1296688602;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 19444;
-        assert(hashGenesisBlock == uint256("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"));
+        nDefaultPort = 44511;
+//		printf("RegTest GenesisBlock = %s \n", hashGenesisBlock.ToString().c_str());
+        assert(hashGenesisBlock == uint256("0x1c717ec1ebccb72884a1b6271f871629a7914ac7f8eac04ed862863e3c7d44cd"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
@@ -292,6 +304,7 @@ public:
 
         // Minecoin: v2 enforced using Bitcoin's supermajority rule
         nEnforceV2AfterHeight = -1;
+        nForkHeight700k = 300;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const 
     {
@@ -308,7 +321,7 @@ public:
     CUnitTestParams() {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 18445;
+        nDefaultPort = 42512;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Unit test mode doesn't have any DNS seeds.
 
@@ -330,12 +343,14 @@ public:
 
     //! Published setters to allow changing values in unit test cases
     virtual void setSubsidyHalvingInterval(int anSubsidyHalvingInterval)  { nSubsidyHalvingInterval=anSubsidyHalvingInterval; }
+    virtual void setSubsidyHalvingInterval2(int anSubsidyHalvingInterval2)  { nSubsidyHalvingInterval2=anSubsidyHalvingInterval2; }
     virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority)  { nEnforceBlockUpgradeMajority=anEnforceBlockUpgradeMajority; }
     virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority)  { nRejectBlockOutdatedMajority=anRejectBlockOutdatedMajority; }
     virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority)  { nToCheckBlockUpgradeMajority=anToCheckBlockUpgradeMajority; }
     virtual void setDefaultConsistencyChecks(bool afDefaultConsistencyChecks)  { fDefaultConsistencyChecks=afDefaultConsistencyChecks; }
     virtual void setAllowMinDifficultyBlocks(bool afAllowMinDifficultyBlocks) {  fAllowMinDifficultyBlocks=afAllowMinDifficultyBlocks; }
     virtual void setSkipProofOfWorkCheck(bool afSkipProofOfWorkCheck) { fSkipProofOfWorkCheck = afSkipProofOfWorkCheck; }
+    virtual void setForkHeight700k(bool anForkHeight700k) { nForkHeight700k = anForkHeight700k; }
 };
 static CUnitTestParams unitTestParams;
 

@@ -1,7 +1,7 @@
 Multiwallet Qt Development and Integration Strategy
 ===================================================
 
-In order to support loading of multiple wallets in bitcoin-qt, a few changes in the UI architecture will be needed.
+In order to support loading of multiple wallets in minecoin-qt, a few changes in the UI architecture will be needed.
 Fortunately, only four of the files in the existing project are affected by this change.
 
 Two new classes have been implemented in two new .h/.cpp file pairs, with much of the functionality that was previously
@@ -12,7 +12,7 @@ some major retrofitting.
 
 Only requiring some minor changes is bitcoin.cpp.
 
-Finally, two new headers and source files will have to be added to bitcoin-qt.pro.
+Finally, two new headers and source files will have to be added to minecoin-qt.pro.
 
 Changes to class BitcoinGUI
 ---------------------------
