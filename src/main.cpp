@@ -1266,16 +1266,20 @@ CAmount GetBlockValue(int nHeight, const CAmount& nFees)
     // Subsidy is cut in half every 840,000 blocks which will occur approximately every 1 years.
     nSubsidy >>= halvings;
 */
+
+/*  Hard fork at 700k that did not go so well at all!
+
     if(nHeight >= Params().ForkHeight700k())
     {
         nSubsidy = 16 * COIN;
-        int halvings = nHeight - 700000 / Params().SubsidyHalvingInterval2();
+        int halvings = (nHeight - 710000) / Params().SubsidyHalvingInterval2();
         if (halvings >= 16)
             return nFees;
 
         // Subsidy is cut in half every 200,000 blocks after block 700k.
         nSubsidy >>= halvings;
     }
+*/
 
     return nSubsidy + nFees;
 }
@@ -3689,7 +3693,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
-        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION || pfrom->nVersion == OBSOLETE_PROTO_VERSION)
+        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION || pfrom->nVersion == BAD_HARDFORK_PROTO_VERSION)
         {
             // relay alerts prior to disconnection
             RelayAlerts(pfrom);
