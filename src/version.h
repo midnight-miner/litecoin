@@ -18,7 +18,11 @@ static const int INIT_PROTO_VERSION = 209;
 static const int GETHEADERS_VERSION = 70004;
 
 //! disconnect from peers older than this proto version
+<<<<<<< HEAD
 static const int MIN_PEER_PROTO_VERSION = 70002;
+=======
+static const int MIN_PEER_PROTO_VERSION = 70004;
+>>>>>>> branch 'minecoin-dev-0.10.5' of https://github.com/midnight-miner/minecoin-dev.git
 
 //! nTime field added to CAddress, starting with this version;
 //! if possible, avoid requesting addresses nodes older than this

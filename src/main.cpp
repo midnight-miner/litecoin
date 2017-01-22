@@ -3693,7 +3693,11 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
+<<<<<<< HEAD
         if (pfrom->nVersion < MIN_PEER_PROTO_VERSION || pfrom->nVersion == BAD_HARDFORK_PROTO_VERSION)
+=======
+        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION) //  || pfrom->nVersion == OBSOLETE_PROTO_VERSION)
+>>>>>>> branch 'minecoin-dev-0.10.5' of https://github.com/midnight-miner/minecoin-dev.git
         {
             // relay alerts prior to disconnection
             RelayAlerts(pfrom);
