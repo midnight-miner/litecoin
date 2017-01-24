@@ -118,7 +118,7 @@ public:
         nSubsidyHalvingInterval2 = 200000;  // Halving interval after block 700k
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
+        nToCheckBlockUpgradeMajority = 10000;
         nMinerThreads = 0;
         nTargetTimespan = 5 * 60; // 5 minutes
         nTargetSpacing = 1 * 30; // 30 seconds
@@ -190,7 +190,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
 
         // Minecoin: Mainnet v2 enforced as of block 700k
-        nEnforceV2AfterHeight = 710000;
+        nEnforceV2AfterHeight = 700000;
         // Hark Fork at block 700k - change PoW rewards.
         nForkHeight700k = 700000;  // Hard Fork to change PoW rewards and Halving interval.
     }
