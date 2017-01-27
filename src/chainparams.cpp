@@ -65,11 +65,13 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 		( 500000, uint256("0xdd0873b91edfb00c55bba58f509f33406fa9a0f69e53bb11705251074413e518"))
 		( 600000, uint256("0xd8da0db4a90a334b4aae4d33274a74bcf2f9533e0304304408f747c22c13f4c9"))
 		( 658200, uint256("0xc457a10672e7740f57d9554db2483f0e8260a7f2900912d83bc89bedb23235d0"))
+		( 701400, uint256("0xa9d875edabc05c05a00c6f367f2fc6923b15beeaecbd6c6968b1cede1f3ac95b"))
         ;
+
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
         1440951840, // * UNIX timestamp of last checkpoint block
-        715318,    // * total number of transactions between genesis and last checkpoint
+        759428,    // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
         2880.0     // * estimated number of transactions per day after checkpoint
     };
@@ -117,7 +119,7 @@ public:
         nSubsidyHalvingInterval2 = 200000;  // Halving interval after block 700k
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
+        nToCheckBlockUpgradeMajority = 10000;
         nMinerThreads = 0;
         nTargetTimespan = 5 * 60; // 5 minutes
         nTargetSpacing = 1 * 30; // 30 seconds
@@ -189,9 +191,11 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
 
         // Minecoin: Mainnet v2 enforced as of block 700k
-        nEnforceV2AfterHeight = 710000;
-        // Hark Fork at block 700k - change PoW rewards.
-        nForkHeight700k = 700000;  // Hard Fork to change PoW rewards and Halving interval.
+        nEnforceV2AfterHeight = 700000;
+        // Hark Fork at block 720k - change PoW rewards.
+        nForkHeight720K = 720000;  // Hard Fork to change PoW rewards.
+        nHeight1000K = 1000000;  // Change PoW rewards to 1 XMINE per Block.
+        nHeight1800K = 1800000;  // Change PoW rewards to nFees only (Coin Supply reached).
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const 
@@ -304,7 +308,7 @@ public:
 
         // Minecoin: v2 enforced using Bitcoin's supermajority rule
         nEnforceV2AfterHeight = -1;
-        nForkHeight700k = 300;
+        nForkHeight720K = 300;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const 
     {
@@ -350,7 +354,9 @@ public:
     virtual void setDefaultConsistencyChecks(bool afDefaultConsistencyChecks)  { fDefaultConsistencyChecks=afDefaultConsistencyChecks; }
     virtual void setAllowMinDifficultyBlocks(bool afAllowMinDifficultyBlocks) {  fAllowMinDifficultyBlocks=afAllowMinDifficultyBlocks; }
     virtual void setSkipProofOfWorkCheck(bool afSkipProofOfWorkCheck) { fSkipProofOfWorkCheck = afSkipProofOfWorkCheck; }
-    virtual void setForkHeight700k(bool anForkHeight700k) { nForkHeight700k = anForkHeight700k; }
+    virtual void setForkHeight720K(bool anForkHeight720K) { nForkHeight720K = anForkHeight720K; }
+    virtual void setHeight1000K(bool anHeight1000K) { nHeight1000K = anHeight1000K; }
+    virtual void setHeight1800K(bool anHeight1800K) { nHeight1800K = anHeight1800K; }
 };
 static CUnitTestParams unitTestParams;
 
