@@ -192,8 +192,10 @@ public:
 
         // Minecoin: Mainnet v2 enforced as of block 700k
         nEnforceV2AfterHeight = 700000;
-        // Hark Fork at block 700k - change PoW rewards.
-        nForkHeight700k = 700000;  // Hard Fork to change PoW rewards and Halving interval.
+        // Hark Fork at block 720k - change PoW rewards.
+        nForkHeight720K = 720000;  // Hard Fork to change PoW rewards.
+        nHeight1000K = 1000000;  // Change PoW rewards to 1 XMINE per Block.
+        nHeight1800K = 1800000;  // Change PoW rewards to nFees only (Coin Supply reached).
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const 
@@ -306,7 +308,7 @@ public:
 
         // Minecoin: v2 enforced using Bitcoin's supermajority rule
         nEnforceV2AfterHeight = -1;
-        nForkHeight700k = 300;
+        nForkHeight720K = 300;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const 
     {
@@ -352,7 +354,9 @@ public:
     virtual void setDefaultConsistencyChecks(bool afDefaultConsistencyChecks)  { fDefaultConsistencyChecks=afDefaultConsistencyChecks; }
     virtual void setAllowMinDifficultyBlocks(bool afAllowMinDifficultyBlocks) {  fAllowMinDifficultyBlocks=afAllowMinDifficultyBlocks; }
     virtual void setSkipProofOfWorkCheck(bool afSkipProofOfWorkCheck) { fSkipProofOfWorkCheck = afSkipProofOfWorkCheck; }
-    virtual void setForkHeight700k(bool anForkHeight700k) { nForkHeight700k = anForkHeight700k; }
+    virtual void setForkHeight720K(bool anForkHeight720K) { nForkHeight720K = anForkHeight720K; }
+    virtual void setHeight1000K(bool anHeight1000K) { nHeight1000K = anHeight1000K; }
+    virtual void setHeight1800K(bool anHeight1800K) { nHeight1800K = anHeight1800K; }
 };
 static CUnitTestParams unitTestParams;
 

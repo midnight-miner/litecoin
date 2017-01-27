@@ -1250,37 +1250,20 @@ CAmount GetBlockValue(int nHeight, const CAmount& nFees)
         nSubsidy = 8400000 * COIN;
     }
 
-/* Removed original halving schedule and replaced with binary halving at block 700k
- * to extend time before money supply is reached.
- *
- * This slows down the mining rate, but also keep PoW mining available longer.
- *
-*/
 
- /*   int halvings = nHeight / Params().SubsidyHalvingInterval();
+//  Hard fork at 720k change Reward to 10 XMINE per block.
+//  Then 1 XMINE per block until Coin Supply reached at block 1800000-ish
 
-    // Force block reward to zero when right shift is undefined.
-    if (halvings >= 64)
-        return nFees;
-
-    // Subsidy is cut in half every 840,000 blocks which will occur approximately every 1 years.
-    nSubsidy >>= halvings;
-*/
-
-/*  Hard fork at 700k that did not go so well at all!
-
-    if(nHeight >= Params().ForkHeight700k())
+    if(nHeight >= Params().ForkHeight720K())
     {
-        nSubsidy = 16 * COIN;
-        int halvings = (nHeight - 710000) / Params().SubsidyHalvingInterval2();
-        if (halvings >= 16)
-            return nFees;
+        nSubsidy = 10 * COIN;
 
-        // Subsidy is cut in half every 200,000 blocks after block 700k.
-        nSubsidy >>= halvings;
+        if(nHeight >= Params().Height1000K())
+        	nSubsidy = 1 * COIN;
+
+        if(nHeight >= Params().Height1800K())
+        	return nFees;
     }
-*/
-
     return nSubsidy + nFees;
 }
 
@@ -3694,7 +3677,11 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
 
-        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION || pfrom->nVersion == BAD_HARDFORK_PROTO_VERSION)
+        // Work around for failed Hard-fork at block 700k
+        //        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION || pfrom->nVersion == BAD_HARDFORK_PROTO_VERSION)
+
+        // There is an older version of wallet with a high version number that we want to ignore.
+        if (pfrom->nVersion < MIN_PEER_PROTO_VERSION || pfrom->nVersion == OBSOLETE_PROTO_VERSION)
         {
             // relay alerts prior to disconnection
             RelayAlerts(pfrom);

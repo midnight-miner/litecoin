@@ -85,7 +85,9 @@ public:
     // Minecoin: Height to enforce v2 block
     int EnforceV2AfterHeight() const { return nEnforceV2AfterHeight; }
     // Hard Fork at block 700k
-    int ForkHeight700k() const { return nForkHeight700k; }
+    int ForkHeight720K() const { return nForkHeight720K; }
+    int Height1000K() const { return nHeight1000K; }
+    int Height1800K() const { return nHeight1800K; }
 protected:
     CChainParams() {}
 
@@ -122,7 +124,9 @@ protected:
 
     // Minecoin: Height to enforce v2 blocks
     int nEnforceV2AfterHeight;
-    int nForkHeight700k;
+    int nForkHeight720K;
+    int nHeight1000K;
+    int nHeight1800K;
 };
 
 /** 
@@ -142,7 +146,9 @@ public:
     virtual void setDefaultConsistencyChecks(bool aDefaultConsistencyChecks)=0;
     virtual void setAllowMinDifficultyBlocks(bool aAllowMinDifficultyBlocks)=0;
     virtual void setSkipProofOfWorkCheck(bool aSkipProofOfWorkCheck)=0;
-    virtual void setForkHeight700k(bool anForkHeight700k)=0;
+    virtual void setForkHeight720K(bool anForkHeight720K)=0;
+    virtual void setHeight1000K(bool anHeight1000K)=0;
+    virtual void setHeight1800K(bool anHeight1800K)=0;
 };
 
 
